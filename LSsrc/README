@@ -1,0 +1,66 @@
+========================================
+ How to compile the source of LS-align
+========================================
+
+In Linux system, you can compile the LS-align source as
+
+>cd ./src
+
+>g++ LSalign.cpp -o LSalign
+
+or
+
+>g++ -static -O3 -ffast-math -lm -o LSalign LSalign.cpp
+
+========================================
+ How to use LS-align
+========================================
+In Linux system and the right directory, you can run the program in the command window without arguments to obtain a brief instruction
+
+>./LSalign
+
+Here, an example is shown as follows:
+
+>./LSalign ../example/ace_ligands.mol2 ../example/xtal-lig.mol2
+
+
+
+====================
+Output Format
+====================
+QEURY_NAME: the query ligand name
+TEMPL_NAME: the template ligand name
+PC-score8Q:	the PC-score if normalized by atom number of Query Ligand
+PC-score8T: the PC-score if normalized by atom number of Template Ligand
+Pval_PC8Q:	the P-value of PC-score8Q based on statistic (Gumbel distribution)
+Pval_PC8T:	the P-value of PC-score8T based on statistic (Gumbel distribution)
+JaccardR:		the Jaccard ratio of this alignment 
+RMSD_LS:		the RMSD_LS of this alignment
+QUERY_SIZE: The atom number (without 'H') of the query ligand
+TEMPL_SIZE: The atom number (without 'H') of the template ligand
+
+(Some detail definitions can be found at http://zhanglab.ccmb.med.umich.edu/LS-align/ReportParam.html)
+
+====================
+ About this program
+====================
+This program is an implementation of LS-align in C/C++ (Version: J201704171741) by
+
+ Jun Hu at the
+ Yang Zhang lab
+ Center for Computational Medicine and Bioinformatics 
+ University of Michigan 
+ 100 Washtenaw Avenue, Ann Arbor, MI 48109-2218                                                        
+           
+Please report bugs and questions to junh_cs@126.com or hujunum@umich.edu
+
+====================
+ Reference
+====================
+Jun Hu, Zi Liu, Dongjun Yu and Yang Zhang. LS-align: an atom-level, flexible ligand structural alignment algorithm for efficient virtual screening, Bioinformatics, Submitted.
+
+
+====================
+ Acknowledge
+====================
+We thank that Dr.John Kulp helps us to fix the compiled error about the "abs" function, when using the compilers of g++ 8.2.0 and Visual Studio 2017. 
